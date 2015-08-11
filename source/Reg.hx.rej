@@ -1,0 +1,9 @@
+diff a/Haxius-master/source/Reg.hx b/Haxius-master/source/Reg.hx	(rejected hunks)
+@@ -14,7 +14,6 @@
+ 	public static inline var COIN:String = "assets/images/sprite/prisma4.png";
+ 	public static inline var BLOCK:String = "assets/images/sprite/block.png";
+ 	public static inline var EXPLOSION:String = "assets/images/sprite/explosion.png";
+-	public static inline var TITLE_LOGO = "assets/images/sprite/logo_extoss.png";
+ 	public static inline var TITLE_LOGO:String = "assets/images/sprite/122.png";
+ 
+ 	//Sounds
