@@ -15,7 +15,7 @@ public class MovingThetexture : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		offSet += speed * Time.deltaTime;
+		offSet += SwipeDetector.auxD * Time.deltaTime;
 		
 		currentMaterial.SetTextureOffset("_MainTex",new Vector2(0,offSet));
 	}

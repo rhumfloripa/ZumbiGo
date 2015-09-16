@@ -19,7 +19,7 @@ public class SwipeDetector : MonoBehaviour
 		//#if UNITY_ANDROID
 		if (!(Input.touchCount > 0)) {
 			if (auxD > 0){
-			auxD -= Time.deltaTime;
+			auxD -= Time.deltaTime*6;
 			}else{
 			auxD = 0;
 			}
@@ -41,7 +41,7 @@ public class SwipeDetector : MonoBehaviour
 
 			break;
 		
-			case TouchPhase.Ended:
+			case TouchPhase.Moved:
 				
 				float swipeDistVertical = (new Vector3(0, touch.position.y, 0) - new Vector3(0, startPos.y, 0)).magnitude;
 				
@@ -51,7 +51,7 @@ public class SwipeDetector : MonoBehaviour
 					
 					float swipeValue = Mathf.Sign(touch.position.y - startPos.y);
 					
-					texto.text="CorY?: "+swipeDistVertical;
+					texto.text="CorY?: "+(touch.deltaTime*1);
 					
 					if (swipeValue > 0){//up swipe
 						
@@ -61,8 +61,8 @@ public class SwipeDetector : MonoBehaviour
 						}else if (swipeValue < 0){//down swipe
 							
 						//Shrink ();
-						//auxD = touch.position.y;
-						auxD += (swipeDistVertical / 200)*Time.deltaTime;
+						auxD += (touch.deltaTime * 1);//)/5;
+						//auxD += (swipeDistVertical / 200)*Time.deltaTime;
 						}	
 				}
 				
