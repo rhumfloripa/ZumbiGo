@@ -1,14 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Scripts\SwipeDetector.cs">
     <Files>
-      <File FileName="Assets\Resources\Scripts\Movimentacao.cs" Line="25" Column="42" />
-      <File FileName="Assets\Resources\Scripts\MobileDevice.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Scripts\MovingThetexture.cs" Line="18" Column="11" />
-      <File FileName="Assets\Resources\Scripts\_Movimentacao.cs" Line="1" Column="1" />
-      <File FileName="..\..\..\..\SENAI\Unity\primeiraAula\Assets\Resources\scripts\Score.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Scripts\NavSample.cs" Line="15" Column="42" />
-      <File FileName="Assets\Resources\Scripts\SwipeDetector.cs" Line="64" Column="38" />
+      <File FileName="Assets\Resources\Scripts\MovingThetexture.cs" Line="23" Column="2" />
+      <File FileName="Assets\Resources\Scripts\Movimentacao.cs" Line="70" Column="1" />
+      <File FileName="Assets\Resources\Scripts\MobileDevice.cs" Line="42" Column="1" />
+      <File FileName="Assets\Resources\Scripts\_Movimentacao.cs" Line="160" Column="1" />
+      <File FileName="..\..\..\..\SENAI\Unity\primeiraAula\Assets\Resources\scripts\Score.cs" Line="29" Column="1" />
+      <File FileName="Assets\Resources\Scripts\NavSample.cs" Line="19" Column="1" />
+      <File FileName="Assets\Resources\Scripts\SwipeDetector.cs" Line="93" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

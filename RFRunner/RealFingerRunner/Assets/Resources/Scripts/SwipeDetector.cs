@@ -61,6 +61,7 @@ public class SwipeDetector : MonoBehaviour
 						}else if (swipeValue < 0){//down swipe
 							
 						//Shrink ();
+						//auxD = touch.position.y;
 						auxD += (swipeDistVertical / 200)*Time.deltaTime;
 						}	
 				}

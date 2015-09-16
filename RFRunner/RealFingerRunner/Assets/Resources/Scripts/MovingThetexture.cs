@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class MovingThetexture : MonoBehaviour {
-	//public float speed;
+	public float speed;
 	private float offSet;
 	public Material currentMaterial;
 	//public currentMaterial renderer.material; 
@@ -15,7 +15,7 @@ public class MovingThetexture : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		offSet += SwipeDetector.auxD;
+		offSet += speed * Time.deltaTime;
 		
 		currentMaterial.SetTextureOffset("_MainTex",new Vector2(0,offSet));
 	}
