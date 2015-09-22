@@ -16,7 +16,10 @@ Platform assembly: F:\repositorios\ZumbiGo\RFRunner\RealFingerRunner\teste_run.a
 Loading F:\repositorios\ZumbiGo\RFRunner\RealFingerRunner\teste_run.apk_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: F:\repositorios\ZumbiGo\RFRunner\RealFingerRunner\teste_run.apk_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading F:\repositorios\ZumbiGo\RFRunner\RealFingerRunner\teste_run.apk_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.408 seconds
+- Completed reload, in  0.148 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: F:\repositorios\ZumbiGo\RFRunner\RealFingerRunner\teste_run.apk_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: F:\repositorios\ZumbiGo\RFRunner\RealFingerRunner\teste_run.apk_Data\Managed\System.dll (this message is harmless)

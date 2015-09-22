@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+
 public class SwipeDetector : MonoBehaviour 
 {
 	
@@ -9,36 +10,56 @@ public class SwipeDetector : MonoBehaviour
 	public float minSwipeDistX;
 	
 	public static float auxD = 0;
+	public static bool startGame = false;
 	
 	private Vector2 startPos;
+	float startTime = 0;
 	
 	public TextMesh texto;
 	
+	public static float tempoTxt;
+	
+	void Start(){
+		//tempoTxt = GetComponent<TextMesh> ();
+	
+	}
+	
 	void Update()
 	{
+		
+		
 		//#if UNITY_ANDROID
-		if (!(Input.touchCount > 0)) {
+		//texto.text="CorY?: "+auxD;
+		if (Input.touchCount == 0) {
 			if (auxD > 0){
-			auxD -= Time.deltaTime*6;
+			auxD -= Time.deltaTime*10;
 			}else{
 			auxD = 0;
 			}
 		}
 		
+		if (startGame){
+		
+		startTime += Time.deltaTime;
+		
+		}
+		texto.text = "Time:"+startTime;
+		tempoTxt = startTime;
+		//auxD += (50);
 		if (Input.touchCount > 0) 
 			
 		{
 			
 			Touch touch = Input.touches[0];
 			
-			
+			startGame = true;
 			
 			switch (touch.phase) 
 				
 			{
 			case TouchPhase.Began:
 				startPos = touch.position;
-
+				//auxD += (50);
 			break;
 		
 			case TouchPhase.Moved:
@@ -51,7 +72,7 @@ public class SwipeDetector : MonoBehaviour
 					
 					float swipeValue = Mathf.Sign(touch.position.y - startPos.y);
 					
-					texto.text="CorY?: "+(touch.deltaTime*1);
+					//texto.text="CorY?: "+(touch.deltaTime*1);
 					
 					if (swipeValue > 0){//up swipe
 						
@@ -61,7 +82,9 @@ public class SwipeDetector : MonoBehaviour
 						}else if (swipeValue < 0){//down swipe
 							
 						//Shrink ();
-						auxD += (touch.deltaTime * 1);//)/5;
+						//auxD += (touch.deltaTime * 1);//)/5;
+						auxD += (touch.deltaPosition.y)*-1;// touch.deltaTime);
+						//auxD += (1.5f *Time.deltaTime);
 						//auxD += (swipeDistVertical / 200)*Time.deltaTime;
 						}	
 				}
@@ -87,7 +110,15 @@ public class SwipeDetector : MonoBehaviour
 				*/
 				break;
 			
+			
+			
+			
+			
 			}
+		
 		}
+	
+		
+		
 	}
 }
