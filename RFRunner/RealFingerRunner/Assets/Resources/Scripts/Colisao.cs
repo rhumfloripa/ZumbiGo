@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Colisao : MonoBehaviour {
 
+	public GameObject botao;
+
 	// Use this for initialization;
 	void Start () {
 	
@@ -18,7 +20,10 @@ public class Colisao : MonoBehaviour {
 			//Main.score  += 100;
 			//Destroy(collision.gameObject);
 			//Destroy (this.gameObject);
+			
+			botao.SetActive(true);
 			SwipeDetector.startGame = false;
+			SwipeDetector.run = false;
 		}
 
 

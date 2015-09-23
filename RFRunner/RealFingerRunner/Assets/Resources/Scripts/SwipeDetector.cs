@@ -18,10 +18,11 @@ public class SwipeDetector : MonoBehaviour
 	public TextMesh texto;
 	
 	public static float tempoTxt;
+	public static bool run;
 	
 	void Start(){
 		//tempoTxt = GetComponent<TextMesh> ();
-	
+	run = false;
 	}
 	
 	void Update()
@@ -38,7 +39,7 @@ public class SwipeDetector : MonoBehaviour
 			}
 		}
 		
-		if (startGame){
+		if (startGame && run){
 		
 		startTime += Time.deltaTime;
 		
@@ -75,18 +76,17 @@ public class SwipeDetector : MonoBehaviour
 					//texto.text="CorY?: "+(touch.deltaTime*1);
 					
 					if (swipeValue > 0){//up swipe
-						
 						//Jump ();
 						//auxD += swipeValue * Time.deltaTime;
 						
-						}else if (swipeValue < 0){//down swipe
+					}else if (swipeValue < 0){//down swipe
 							
 						//Shrink ();
 						//auxD += (touch.deltaTime * 1);//)/5;
 						auxD += (touch.deltaPosition.y)*-1;// touch.deltaTime);
 						//auxD += (1.5f *Time.deltaTime);
 						//auxD += (swipeDistVertical / 200)*Time.deltaTime;
-						}	
+					}	
 				}
 				
 				

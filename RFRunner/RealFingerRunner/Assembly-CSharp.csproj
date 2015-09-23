@@ -46,7 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Resources\Scripts\BtTrocaDeCena.cs" />
      <Compile Include="Assets\Resources\Scripts\Colisao.cs" />
+     <Compile Include="Assets\Resources\Scripts\ColisaoPista.cs" />
      <Compile Include="Assets\Resources\Scripts\MobileDevice.cs" />
      <Compile Include="Assets\Resources\Scripts\Movimentacao.cs" />
      <Compile Include="Assets\Resources\Scripts\MovingThetexture.cs" />
