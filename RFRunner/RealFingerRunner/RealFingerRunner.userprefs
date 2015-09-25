@@ -1,11 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Scripts\Colisao.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Scripts\SwipeDetector.cs">
     <Files>
-      <File FileName="Assets\Resources\Scripts\ColisaoPista.cs" Line="19" Column="80" />
-      <File FileName="Assets\Resources\Scripts\SwipeDetector.cs" Line="40" Column="4" />
-      <File FileName="Assets\Resources\Scripts\Colisao.cs" Line="26" Column="30" />
+      <File FileName="Assets\Resources\Scripts\Score.cs" Line="45" Column="7" />
+      <File FileName="Assets\Resources\Scripts\SwipeDetector.cs" Line="78" Column="26" />
+      <File FileName="Assets\Resources\Scripts\Splash.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Scripts\ColisaoPista.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Scripts\Colisao.cs" Line="27" Column="29" />
+      <File FileName="Assets\Resources\Scripts\BtTrocaDeCena.cs" Line="24" Column="22" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True" />
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

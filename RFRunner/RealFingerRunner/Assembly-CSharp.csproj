@@ -54,6 +54,7 @@
      <Compile Include="Assets\Resources\Scripts\MovingThetexture.cs" />
      <Compile Include="Assets\Resources\Scripts\NavSample.cs" />
      <Compile Include="Assets\Resources\Scripts\Score.cs" />
+     <Compile Include="Assets\Resources\Scripts\Splash.cs" />
      <Compile Include="Assets\Resources\Scripts\SwipeDetector.cs" />
      <Compile Include="Assets\Resources\Scripts\_Movimentacao.cs" />
  <Reference Include="UnityEngine.UI">

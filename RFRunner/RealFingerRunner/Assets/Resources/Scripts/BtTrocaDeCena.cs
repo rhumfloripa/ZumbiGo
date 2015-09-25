@@ -18,9 +18,14 @@ public class BtTrocaDeCena : MonoBehaviour {
 	
 	public void vaiPara(string cena){
 		SwipeDetector.tempoTxt = 0;
+		SwipeDetector.startTime = 0;
 		SwipeDetector.auxD = 0;
 		SwipeDetector.startGame=false;
+		SwipeDetector.timeLeft = 3;
 		Application.LoadLevel(cena);
+		
+		
+		//print ("colidiu ="+SwipeDetector.startGame);
 		
 		
 	}

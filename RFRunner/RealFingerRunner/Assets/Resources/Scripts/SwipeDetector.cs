@@ -13,47 +13,72 @@ public class SwipeDetector : MonoBehaviour
 	public static bool startGame = false;
 	
 	private Vector2 startPos;
-	float startTime = 0;
+	public static float startTime = 0;
 	
 	public TextMesh texto;
 	
 	public static float tempoTxt;
 	public static bool run;
+	public bool isDebug;
+	public static string timer;
+	public int endTime;
+	public static int timeLeft;
+	
 	
 	void Start(){
 		//tempoTxt = GetComponent<TextMesh> ();
 	run = false;
+	endTime = 3;
+	timeLeft = 3;
+	if(isDebug)auxD=20;
 	}
 	
 	void Update()
 	{
-		
+		if(isDebug && startGame ){
+			auxD+=20;
+			//startGame=true;
+		}
 		
 		//#if UNITY_ANDROID
 		//texto.text="CorY?: "+auxD;
 		if (Input.touchCount == 0) {
 			if (auxD > 0){
-			auxD -= Time.deltaTime*10;
+			auxD -= Time.deltaTime*50;
 			}else{
 			auxD = 0;
 			}
 		}
+		//print ("ST:"+ startGame);
+		//print ("RUN:"+ run);
 		
-		if (startGame && run){
+		if (run && startGame){
 		
 		startTime += Time.deltaTime;
 		
 		}
-		texto.text = "Time:"+startTime;
+		//texto.text = "Time:"+startTime;
 		tempoTxt = startTime;
 		//auxD += (50);
+		
+		timeLeft = endTime - (int)Time.timeSinceLevelLoad;
+		if (timeLeft < -1) timeLeft = -1;
+		timer = timeLeft.ToString();
+		
+		if(isDebug)
+		if(Input.GetMouseButtonDown(0)){
+		startGame = true;
+		}
+		print (Input.mousePosition.y);
 		if (Input.touchCount > 0) 
-			
 		{
 			
 			Touch touch = Input.touches[0];
 			
-			startGame = true;
+				if(touch.position.y < Screen.height/2 && run){
+					//texto.text="pos: "+touch.position.y;
+					startGame = true;
+				}
 			
 			switch (touch.phase) 
 				
@@ -72,14 +97,7 @@ public class SwipeDetector : MonoBehaviour
 				{
 					
 					float swipeValue = Mathf.Sign(touch.position.y - startPos.y);
-					
-					//texto.text="CorY?: "+(touch.deltaTime*1);
-					
-					if (swipeValue > 0){//up swipe
-						//Jump ();
-						//auxD += swipeValue * Time.deltaTime;
-						
-					}else if (swipeValue < 0){//down swipe
+					if (swipeValue < 0){//down swipe
 							
 						//Shrink ();
 						//auxD += (touch.deltaTime * 1);//)/5;
@@ -88,37 +106,8 @@ public class SwipeDetector : MonoBehaviour
 						//auxD += (swipeDistVertical / 200)*Time.deltaTime;
 					}	
 				}
-				
-				
-				
-				/*float swipeDistHorizontal = (new Vector3(touch.position.x,0, 0) - new Vector3(startPos.x, 0, 0)).magnitude;
-				
-				if (swipeDistHorizontal > minSwipeDistX) 
-				{
-					
-					float swipeValue = Mathf.Sign(touch.position.x - startPos.x);
-					
-					if (swipeValue > 0){//right swipe
-						
-						//MoveRight ();
-						
-						}else if{ (swipeValue < 0)//left swipe
-							
-							//MoveLeft ();
-						}
-				}
-				*/
 				break;
-			
-			
-			
-			
-			
 			}
-		
 		}
-	
-		
-		
 	}
 }

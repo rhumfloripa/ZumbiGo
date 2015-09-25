@@ -21,9 +21,11 @@ public class Colisao : MonoBehaviour {
 			//Destroy(collision.gameObject);
 			//Destroy (this.gameObject);
 			
-			botao.SetActive(true);
+			
 			SwipeDetector.startGame = false;
 			SwipeDetector.run = false;
+			SwipeDetector.timer = "3";
+			botao.SetActive(true);
 		}
 
 

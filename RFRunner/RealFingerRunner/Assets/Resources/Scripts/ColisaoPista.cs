@@ -21,13 +21,26 @@ public class ColisaoPista : MonoBehaviour {
 			//Destroy(collision.gameObject);
 			//Destroy (this.gameObject);
 			
-			botao.SetActive(false);
+			//botao.SetActive(false);
 			//SwipeDetector.startGame = false;
 			SwipeDetector.run = true;
+			//SwipeDetector.startGame=true;
+			//print ("colidiu pista");
 		}
-
-
+	}
 	
+	void OnTriggerEnter(Collider other) {
+		if (other.gameObject.tag == "tri") {
+			//Main.score  += 100;
+			//Destroy(collision.gameObject);
+			//Destroy (this.gameObject);
+			
+			//botao.SetActive(false);
+			//SwipeDetector.startGame = false;
+			//SwipeDetector.run = true;
+			//SwipeDetector.startGame=true;
+			print ("colidiu pista");
+		}
 	}
 
 }
