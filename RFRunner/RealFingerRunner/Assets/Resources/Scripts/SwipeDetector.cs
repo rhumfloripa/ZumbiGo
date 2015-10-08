@@ -54,7 +54,7 @@ public class SwipeDetector : MonoBehaviour
 		
 		if (run && startGame){
 		
-		startTime += Time.deltaTime;
+			startTime += Time.deltaTime;
 		
 		}
 		//texto.text = "Time:"+startTime;
