@@ -26,6 +26,8 @@ public class SwipeDetector : MonoBehaviour
 	AudioSource audioStep;
 	bool stepLeft;
 	bool stepRight;
+	public static bool isTouch;
+	public static bool queimouLargada;
 	//public AudioSource audioStepRight;
 	//public AudioSource audioStepLeft;
 	
@@ -36,6 +38,8 @@ public class SwipeDetector : MonoBehaviour
 		run = false;
 		endTime = 3;
 		timeLeft = 3;
+		isTouch = false;
+		queimouLargada = false;
 		if (isDebug)
 			auxD = 20;
 			
@@ -54,7 +58,7 @@ public class SwipeDetector : MonoBehaviour
 		//texto.text="CorY?: "+auxD;
 		if (Input.touchCount == 0) {
 			if (auxD > 0) {
-				auxD -= Time.deltaTime * 50;
+				auxD -= Time.deltaTime * 100;
 			} else {
 				auxD = 0;
 			}
@@ -65,6 +69,12 @@ public class SwipeDetector : MonoBehaviour
 		if (run && startGame) {
 		
 			startTime += Time.deltaTime;
+		
+		}
+		
+		if (Input.touchCount > 0 && !startGame && !Colisao.ganhou) {
+		
+			queimouLargada = true;
 		
 		}
 		//texto.text = "Time:"+startTime;
@@ -87,7 +97,7 @@ public class SwipeDetector : MonoBehaviour
 			
 			if (touch.position.y < Screen.height / 2 && run) {
 				//texto.text="pos: "+touch.position.y;
-				startGame = true;
+				isTouch = true;
 			}
 			
 			switch (touch.phase) {
@@ -111,6 +121,7 @@ public class SwipeDetector : MonoBehaviour
 					audioStep.Play ();
 					//stepLeft = true;
 				}
+				
 				//audioStep.Play (44100);
 				//auxD += (50);
 				break;
@@ -125,10 +136,13 @@ public class SwipeDetector : MonoBehaviour
 					if (swipeValue < 0) {//down swipe
 							
 						//Shrink ();
-						//auxD += (touch.deltaTime * 1);//)/5;
-						auxD += (touch.deltaPosition.y) * -1;// touch.deltaTime);
-						//auxD += (1.5f *Time.deltaTime);
-						//auxD += (swipeDistVertical / 200)*Time.deltaTime;
+						if (run && startGame) {//auxD += (touch.deltaTime * 1);//)/5;
+							auxD += ((touch.deltaPosition.y) / 2) * -1;// touch.deltaTime);
+							//auxD += (1.5f *Time.deltaTime);
+							//auxD += (swipeDistVertical / 200)*Time.deltaTime;
+						} else {
+							auxD = 0;
+						}
 					}	
 				}
 				break;

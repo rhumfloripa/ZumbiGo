@@ -29,8 +29,10 @@ public class Score : MonoBehaviour
 	void Update ()
 	{
 
-		if (is3D) {
-			//texto3D.text = "Score3D: " + SwipeDetector.tempoTxt;
+		if (SwipeDetector.queimouLargada) {
+			score.color = new Color (255, 0, 0);
+			score.text = "Queimou Largada";
+			SwipeDetector.auxD = 0;
 			//texto3D.text = "TIME: " + SwipeDetector.timer;
 		} else {
 			
@@ -39,6 +41,7 @@ public class Score : MonoBehaviour
 			
 			if (SwipeDetector.timer == "0") {
 				timerTxt.text = "GO!";
+				SwipeDetector.startGame = true;
 				
 			} else {
 			
