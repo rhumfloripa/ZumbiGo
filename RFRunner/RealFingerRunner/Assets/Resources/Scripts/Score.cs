@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-	Text score;
+	public static Text score;
 	public bool is3D;
 	//public TextMesh texto3D;
 	public TextMesh timerTxt;

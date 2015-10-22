@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GetScore : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class GetScore : MonoBehaviour
 	void Update ()
 	{
 	
-		Game.current.score += 0.1f;
+		Game.current.score += float.Parse (Score.score.text);//SwipeDetector.tempoTxt;
 		texto.text = "Score :" + Game.current.score;
 		if (Game.current.score > 100 && foi) {
 		

@@ -49,6 +49,11 @@ public class SwipeDetector : MonoBehaviour
 	
 	void Update ()
 	{
+		
+		if (Input.GetKeyDown (KeyCode.Escape)) 
+			Application.Quit (); 
+		
+	
 		if (isDebug && startGame) {
 			auxD += 20;
 			//startGame=true;
