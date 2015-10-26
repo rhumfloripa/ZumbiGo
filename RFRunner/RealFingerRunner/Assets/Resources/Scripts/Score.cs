@@ -31,7 +31,7 @@ public class Score : MonoBehaviour
 
 		if (SwipeDetector.queimouLargada) {
 			score.color = new Color (255, 0, 0);
-			score.text = "Queimou!";
+			score.text = "Queimou Largada";
 			SwipeDetector.auxD = 0;
 			//texto3D.text = "TIME: " + SwipeDetector.timer;
 		} else {
