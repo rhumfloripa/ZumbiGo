@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Colisao : MonoBehaviour
 {
@@ -7,6 +8,11 @@ public class Colisao : MonoBehaviour
 	public GameObject botao;
 	AudioSource audioFinish;
 	public static bool ganhou;
+	public InputField name;
+	public static float tempoFinal;
+	ArrayList lNames = new ArrayList ();
+
+
 
 	// Use this for initialization;
 	void Start ()
@@ -36,7 +42,7 @@ public class Colisao : MonoBehaviour
 			//Destroy(collision.gameObject);
 			//Destroy (this.gameObject);
 			
-			
+			tempoFinal = SwipeDetector.startTime;
 			SwipeDetector.startGame = false;
 			SwipeDetector.run = false;
 			SwipeDetector.timer = "3";
@@ -44,7 +50,10 @@ public class Colisao : MonoBehaviour
 			ganhou = true;
 			botao.SetActive (true);
 			audioFinish.Play ();
-			
+
+			//ADICAO DE NOME E ARRAY LISTA COM SAVE
+			name.text = "Enter your name :";
+    
 		}
 		
 		

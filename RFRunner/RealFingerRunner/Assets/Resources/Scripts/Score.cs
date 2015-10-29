@@ -33,15 +33,17 @@ public class Score : MonoBehaviour
 			score.color = new Color (255, 0, 0);
 			score.text = "Queimou Largada";
 			SwipeDetector.auxD = 0;
+			Colisao.ganhou = false;
 			//texto3D.text = "TIME: " + SwipeDetector.timer;
 		} else {
 			
 			score.text = "Time: " + FloatToTime (SwipeDetector.tempoTxt, "#0.0");
-			//score.text = "Timer: " + SwipeDetector.tempoTxt;
+			Game.setAtual (SwipeDetector.tempoTxt);//score.text = "Timer: " + SwipeDetector.tempoTxt;
 			
 			if (SwipeDetector.timer == "0") {
 				timerTxt.text = "GO!";
 				SwipeDetector.startGame = true;
+				Colisao.ganhou = false;
 				
 			} else {
 			

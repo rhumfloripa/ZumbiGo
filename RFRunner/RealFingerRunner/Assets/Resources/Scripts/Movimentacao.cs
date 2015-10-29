@@ -1,63 +1,66 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movimentacao : MonoBehaviour {
+public class Movimentacao : MonoBehaviour
+{
 	bool isRight;
 	bool toque;
 	public static float auxD;
 	float meiaTela;
 	public float speed;
 	
-	float oldX,oldY;
+	float oldX, oldY;
 	// Use this for initialization
 	public TextMesh texto;
-	void Start () {
-		isRight=true;
-		toque=false;
+	void Start ()
+	{
+		isRight = true;
+		toque = false;
 		//speed=2;
-		meiaTela=Screen.width/2;
-		auxD=0;
+		meiaTela = Screen.width / 2;
+		auxD = 0;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	//botao esquerdo
-		texto.text="Eh pra direita?: "+isRight;
-		if(Input.GetMouseButtonDown(0)){
+	void Update ()
+	{
+		//botao esquerdo
+		texto.text = "Eh pra direita?: " + isRight;
+		if (Input.GetMouseButtonDown (0)) {
 			toque = true;
 			//oldX=Input.mousePosition.x;
-			oldY=Input.mousePosition.y;
+			oldY = Input.mousePosition.y;
 			
 		}
-		if(Input.GetMouseButtonUp(0)){
+		if (Input.GetMouseButtonUp (0)) {
 			toque = false; 
-			oldX=0;
-			oldY=0;
+			oldX = 0;
+			oldY = 0;
 		}
-		if(!Input.GetMouseButtonUp(0)){
-			if(auxD > 0.0){
+		if (!Input.GetMouseButtonUp (0)) {
+			if (auxD > 0.0) {
 				auxD -= Time.deltaTime;
-			}else{
+			} else {
 				auxD = 0;
 			}
 		}
-		if(toque){//se ta arrastando "dragging" simula o touch
+		if (toque) {//se ta arrastando "dragging" simula o touch
 			//verifica se o mouse andou
-			if(oldX!=Input.mousePosition.x 
-			   && oldY>Input.mousePosition.y){
+			if (oldX != Input.mousePosition.x 
+				&& oldY > Input.mousePosition.y) {
 				//se for a direita
-				if(isRight){
-					if(Input.mousePosition.x>=meiaTela){
+				if (isRight) {
+					if (Input.mousePosition.x >= meiaTela) {
 						//calcula a velocida para a andada pra direita
 						auxD += Time.deltaTime;
-						isRight=false;
+						isRight = false;
 						
 					}
-				}else{
-					if(Input.mousePosition.x<meiaTela){
+				} else {
+					if (Input.mousePosition.x < meiaTela) {
 						//calcula a velocida para a andada pra esquerda
 						auxD += Time.deltaTime;
-						isRight=true;
+						isRight = true;
 					}
 				}
 			

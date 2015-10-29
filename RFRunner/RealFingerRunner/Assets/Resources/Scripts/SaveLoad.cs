@@ -8,8 +8,9 @@ public class SaveLoad
 {
 	public static void Save ()
 	{
+		Game.organize ();
 		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream file = File.Create (Application.persistentDataPath + "/SaveGame.ZumbiGo");
+		FileStream file = File.Create (Application.persistentDataPath + "/SaveGame.dataZumbi");
 		
 		bf.Serialize (file, Game.current);
 		file.Close ();
@@ -18,12 +19,13 @@ public class SaveLoad
 	public static void Load ()
 	{
 	
-		if (File.Exists (Application.persistentDataPath + "/SaveGame.ZumbiGo")) {
+		if (File.Exists (Application.persistentDataPath + "/SaveGame.dataZumbi")) {
 			
 			BinaryFormatter bf = new BinaryFormatter ();
-			FileStream file = File.Open (Application.persistentDataPath + "/SaveGame.ZumbiGo", FileMode.Open);
+			FileStream file = File.Open (Application.persistentDataPath + "/SaveGame.dataZumbi", FileMode.Open);
 			Game.current = (Game)bf.Deserialize (file);
 			file.Close ();
+			
 			
 			
 		} else {

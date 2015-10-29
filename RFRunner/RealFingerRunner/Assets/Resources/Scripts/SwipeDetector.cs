@@ -4,6 +4,7 @@ using System.Collections;
 
 public class SwipeDetector : MonoBehaviour
 {
+
 	
 	public float minSwipeDistY;
 	
@@ -40,6 +41,7 @@ public class SwipeDetector : MonoBehaviour
 		timeLeft = 3;
 		isTouch = false;
 		queimouLargada = false;
+		//Colisao.ganhou = false;
 		if (isDebug)
 			auxD = 20;
 			
