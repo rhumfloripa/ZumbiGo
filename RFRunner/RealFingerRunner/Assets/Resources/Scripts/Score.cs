@@ -38,7 +38,7 @@ public class Score : MonoBehaviour
 		} else {
 			
 			score.text = "Time: " + FloatToTime (SwipeDetector.tempoTxt, "#0.0");
-			Game.setAtual (SwipeDetector.tempoTxt);//score.text = "Timer: " + SwipeDetector.tempoTxt;
+			//Game.setAtual (SwipeDetector.tempoTxt);//score.text = "Timer: " + SwipeDetector.tempoTxt;
 			
 			if (SwipeDetector.timer == "0") {
 				timerTxt.text = "GO!";
@@ -61,7 +61,7 @@ public class Score : MonoBehaviour
 		//textMesh.text = timeLeft.ToString();
 	}
 	
-	public string FloatToTime (float toConvert, string format)
+	public static string FloatToTime (float toConvert, string format)
 	{
 		switch (format) {
 		case "00.0":

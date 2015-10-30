@@ -29,8 +29,13 @@ public class SwipeDetector : MonoBehaviour
 	bool stepRight;
 	public static bool isTouch;
 	public static bool queimouLargada;
+	float counter;
 	//public AudioSource audioStepRight;
 	//public AudioSource audioStepLeft;
+	
+	//public static float highscore;
+	
+	//public static float myscore;
 	
 	
 	void Start ()
@@ -46,6 +51,8 @@ public class SwipeDetector : MonoBehaviour
 			auxD = 20;
 			
 		audioStep = GetComponent<AudioSource> ();
+		auxD = 20;
+		counter = 0;
 		
 	}
 	
@@ -61,8 +68,13 @@ public class SwipeDetector : MonoBehaviour
 			//startGame=true;
 		}
 		
+		//auxD += 20;
+		
 		//#if UNITY_ANDROID
 		//texto.text="CorY?: "+auxD;
+		
+	
+		// desacelerador
 		if (Input.touchCount == 0) {
 			if (auxD > 0) {
 				auxD -= Time.deltaTime * 100;
@@ -73,12 +85,15 @@ public class SwipeDetector : MonoBehaviour
 		//print ("ST:"+ startGame);
 		//print ("RUN:"+ run);
 		
+		
+		// conta o tempo
 		if (run && startGame) {
 		
 			startTime += Time.deltaTime;
 		
 		}
 		
+		//verifica queimou largada
 		if (Input.touchCount > 0 && !startGame && !Colisao.ganhou) {
 		
 			queimouLargada = true;
@@ -144,11 +159,16 @@ public class SwipeDetector : MonoBehaviour
 							
 						//Shrink ();
 						if (run && startGame) {//auxD += (touch.deltaTime * 1);//)/5;
-							auxD += ((touch.deltaPosition.y) / 2) * -1;// touch.deltaTime);
-							//auxD += (1.5f *Time.deltaTime);
-							//auxD += (swipeDistVertical / 200)*Time.deltaTime;
+							if (counter < 2) { 
+								auxD += ((touch.deltaPosition.y) * 10) * -1;
+								counter ++;
+							} else {
+								auxD += ((touch.deltaPosition.y) / 2) * -1;// touch.deltaTime);
+								//auxD += (1.5f *Time.deltaTime);
+								//auxD += (swipeDistVertical / 200)*Time.deltaTime;
+							}
 						} else {
-							auxD = 0;
+							auxD += 100;
 						}
 					}	
 				}

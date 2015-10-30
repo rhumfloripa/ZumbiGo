@@ -5,6 +5,7 @@ public class ColisaoPista : MonoBehaviour
 {
 
 	public GameObject botao;
+	
 
 	// Use this for initialization;
 	void Start ()
@@ -28,9 +29,11 @@ public class ColisaoPista : MonoBehaviour
 			//botao.SetActive(false);
 			//SwipeDetector.startGame = false;
 			SwipeDetector.run = true;
+			SwipeDetector.auxD = 20;
 			//SwipeDetector.startGame=true;
 			//print ("colidiu pista");
 		}
+		
 	}
 	
 	void OnTriggerEnter (Collider other)

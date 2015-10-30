@@ -10,7 +10,11 @@ public class Colisao : MonoBehaviour
 	public static bool ganhou;
 	public InputField name;
 	public static float tempoFinal;
-	ArrayList lNames = new ArrayList ();
+	public static float highscore;
+	public static string key;
+	float myscore;
+	float score;
+	//ArrayList lNames = new ArrayList ();
 
 
 
@@ -19,6 +23,8 @@ public class Colisao : MonoBehaviour
 	{
 		audioFinish = GetComponent<AudioSource> ();
 		ganhou = false;
+		key = "score";
+		//score = 0;
 	}
 	
 	// Update is called once per frame
@@ -43,6 +49,36 @@ public class Colisao : MonoBehaviour
 			//Destroy (this.gameObject);
 			
 			tempoFinal = SwipeDetector.startTime;
+			myscore = tempoFinal;
+			
+			if (PlayerPrefs.HasKey (key)) {
+				
+				highscore = PlayerPrefs.GetFloat (key);
+				
+				if (highscore > myscore) {
+					
+					PlayerPrefs.SetFloat (key, myscore);
+					
+					highscore = myscore;
+					//score = myscore;
+					
+					
+					PlayerPrefs.Save ();
+					
+				}
+				
+				//score = highscore;
+				//print (PlayerPrefs.GetFloat (key));
+				
+			} else {
+				PlayerPrefs.SetFloat (key, myscore);
+				PlayerPrefs.Save ();
+			}
+			TextoHiScore.mostraScore ();
+			//PlayerPrefs.SetFloat ("Score", tempoFinal);//grava o dado
+			//PlayerPrefs.Save ();
+			
+			
 			SwipeDetector.startGame = false;
 			SwipeDetector.run = false;
 			SwipeDetector.timer = "3";
@@ -50,6 +86,8 @@ public class Colisao : MonoBehaviour
 			ganhou = true;
 			botao.SetActive (true);
 			audioFinish.Play ();
+			
+			//print (PlayerPrefs.GetFloat("Score"));//le o dado
 
 			//ADICAO DE NOME E ARRAY LISTA COM SAVE
 			name.text = "Enter your name :";
