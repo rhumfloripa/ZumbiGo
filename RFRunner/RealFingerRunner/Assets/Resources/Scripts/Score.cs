@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+//script para formatar e imprimir o tempo na tela
 public class Score : MonoBehaviour
 {
 	public static Text score;
@@ -28,21 +28,24 @@ public class Score : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-
+		// mostra queimou largada
 		if (SwipeDetector.queimouLargada) {
 			score.color = new Color (255, 0, 0);
 			score.text = "Queimou Largada";
 			SwipeDetector.auxD = 0;
+			SwipeDetector.counter = 0;
 			Colisao.ganhou = false;
 			//texto3D.text = "TIME: " + SwipeDetector.timer;
 		} else {
 			
+			// mostra o tempo na tela com a formataçao dos segundos
 			score.text = "Time: " + FloatToTime (SwipeDetector.tempoTxt, "#0.0");
 			//Game.setAtual (SwipeDetector.tempoTxt);//score.text = "Timer: " + SwipeDetector.tempoTxt;
 			
+			// mostra o GO! no lugar o ZERO
 			if (SwipeDetector.timer == "0") {
 				timerTxt.text = "GO!";
-				SwipeDetector.startGame = true;
+				SwipeDetector.startGame = true; // habilita o player a correr
 				Colisao.ganhou = false;
 				
 			} else {
@@ -50,6 +53,7 @@ public class Score : MonoBehaviour
 				timerTxt.text = "" + SwipeDetector.timer;
 			
 			}
+			// faz o contador regressivo sumir da tela
 			if (SwipeDetector.timer == "-1") {
 				timerTxt.text = "";
 				//SwipeDetector.startGame = true;
@@ -61,6 +65,7 @@ public class Score : MonoBehaviour
 		//textMesh.text = timeLeft.ToString();
 	}
 	
+	// formata o tempo na tela
 	public static string FloatToTime (float toConvert, string format)
 	{
 		switch (format) {

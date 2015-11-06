@@ -1,35 +1,31 @@
 using UnityEngine;
 using System.Collections;
 
+// Gera aceleraçao da movimentaçao e controles de todo jogo
 
 public class SwipeDetector : MonoBehaviour
 {
 
 	
 	public float minSwipeDistY;
-	
 	public float minSwipeDistX;
-	
-	public static float auxD = 0;
-	public static bool startGame = false;
-	
+	public static float auxD = 0; // acelerador
+	public static bool startGame = false; // controle para inicio 
 	private Vector2 startPos;
-	public static float startTime = 0;
-	
+	public static float startTime = 0; // contador de tempo
 	public TextMesh texto;
-	
 	public static float tempoTxt;
-	public static bool run;
+	public static bool run; // verifica se ja pode correr, somente quando o player toca na pista
 	public bool isDebug;
-	public static string timer;
-	public int endTime;
-	public static int timeLeft;
+	public static string timer; // controle de tempo
+	public int endTime; // controle de tempo
+	public static int timeLeft; // controle de tempo
 	AudioSource audioStep;
 	bool stepLeft;
 	bool stepRight;
 	public static bool isTouch;
 	public static bool queimouLargada;
-	float counter;
+	public static float counter;
 	//public AudioSource audioStepRight;
 	//public AudioSource audioStepLeft;
 	
@@ -51,7 +47,7 @@ public class SwipeDetector : MonoBehaviour
 			auxD = 20;
 			
 		audioStep = GetComponent<AudioSource> ();
-		auxD = 20;
+		auxD = 0;
 		counter = 0;
 		
 	}
@@ -60,18 +56,13 @@ public class SwipeDetector : MonoBehaviour
 	{
 		
 		if (Input.GetKeyDown (KeyCode.Escape)) 
-			Application.Quit (); 
+			//Application.Quit (); 
 		
 	
 		if (isDebug && startGame) {
 			auxD += 20;
 			//startGame=true;
 		}
-		
-		//auxD += 20;
-		
-		//#if UNITY_ANDROID
-		//texto.text="CorY?: "+auxD;
 		
 	
 		// desacelerador
@@ -82,8 +73,7 @@ public class SwipeDetector : MonoBehaviour
 				auxD = 0;
 			}
 		}
-		//print ("ST:"+ startGame);
-		//print ("RUN:"+ run);
+
 		
 		
 		// conta o tempo
@@ -103,10 +93,12 @@ public class SwipeDetector : MonoBehaviour
 		tempoTxt = startTime;
 		//auxD += (50);
 		
+		
+		// count down
 		timeLeft = endTime - (int)Time.timeSinceLevelLoad;
 		if (timeLeft < -1)
 			timeLeft = -1;
-		timer = timeLeft.ToString ();
+		timer = timeLeft.ToString ();  // converte para string
 		
 		if (isDebug)
 		if (Input.GetMouseButtonDown (0)) {
@@ -116,7 +108,7 @@ public class SwipeDetector : MonoBehaviour
 		if (Input.touchCount > 0) {
 			
 			Touch touch = Input.touches [0];
-			
+			// verifica se o touch foi tocado
 			if (touch.position.y < Screen.height / 2 && run) {
 				//texto.text="pos: "+touch.position.y;
 				isTouch = true;
@@ -126,6 +118,7 @@ public class SwipeDetector : MonoBehaviour
 			case TouchPhase.Began:
 				startPos = touch.position;
 				
+				// faz passos alternado 
 				if (stepRight == true) {
 					stepLeft = true;
 					stepRight = false;
@@ -134,6 +127,7 @@ public class SwipeDetector : MonoBehaviour
 					stepLeft = false;
 				}
 				
+				// faz som dos passos 
 				if (stepRight) {
 					audioStep.pitch = 1.5f;
 					audioStep.Play ();
@@ -144,10 +138,9 @@ public class SwipeDetector : MonoBehaviour
 					//stepLeft = true;
 				}
 				
-				//audioStep.Play (44100);
-				//auxD += (50);
+				
 				break;
-		
+			// verifica se o touch esta em movimento
 			case TouchPhase.Moved:
 				
 				float swipeDistVertical = (new Vector3 (0, touch.position.y, 0) - new Vector3 (0, startPos.y, 0)).magnitude;
@@ -157,18 +150,33 @@ public class SwipeDetector : MonoBehaviour
 					float swipeValue = Mathf.Sign (touch.position.y - startPos.y);
 					if (swipeValue < 0) {//down swipe
 							
-						//Shrink ();
-						if (run && startGame) {//auxD += (touch.deltaTime * 1);//)/5;
-							if (counter < 2) { 
-								auxD += ((touch.deltaPosition.y) * 10) * -1;
+						// verifica de o Run e o startgame estao prontos para acelerar
+						if (run && startGame) {
+							
+							// 1st step
+							if (counter == 0) { 
+								
+								auxD += 500;
 								counter ++;
-							} else {
-								auxD += ((touch.deltaPosition.y) / 2) * -1;// touch.deltaTime);
-								//auxD += (1.5f *Time.deltaTime);
-								//auxD += (swipeDistVertical / 200)*Time.deltaTime;
 							}
+									
+							// 2nd e 3rd steps
+							if (counter >= 1 && counter < 3) { 
+								
+								auxD += 200;
+								counter ++;
+								
+								
+							} else { 
+							
+								// more steps
+								auxD += ((touch.deltaPosition.y) / 2) * -1;
+								
+							}
+							
+							
 						} else {
-							auxD += 100;
+							auxD = 0;
 						}
 					}	
 				}

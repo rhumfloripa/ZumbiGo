@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+// Script para mostrar hiscore na tela
 public class TextoHiScore : MonoBehaviour
 {
 	public static Text texto;

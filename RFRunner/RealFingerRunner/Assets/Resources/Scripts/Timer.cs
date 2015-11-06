@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
+//Script para contar tempo para aparecer o menu na tela depois do splash 
 public class Timer : MonoBehaviour
 {
 	public float tempo;

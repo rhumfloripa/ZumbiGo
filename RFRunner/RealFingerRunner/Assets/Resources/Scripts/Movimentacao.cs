@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+// esse SCRIPT nao serve pra nada....
 public class Movimentacao : MonoBehaviour
 {
 	bool isRight;

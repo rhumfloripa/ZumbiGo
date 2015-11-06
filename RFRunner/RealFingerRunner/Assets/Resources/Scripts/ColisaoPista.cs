@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+// Script para checar se o player tocou na pista na contagem regressiva
 public class ColisaoPista : MonoBehaviour
 {
 
@@ -22,20 +22,14 @@ public class ColisaoPista : MonoBehaviour
 	void OnCollisionEnter (Collision collision)
 	{
 		if (collision.gameObject.tag == "Player" && (SwipeDetector.startGame == false)) {
-			//Main.score  += 100;
-			//Destroy(collision.gameObject);
-			//Destroy (this.gameObject);
 			
-			//botao.SetActive(false);
-			//SwipeDetector.startGame = false;
-			SwipeDetector.run = true;
-			SwipeDetector.auxD = 20;
-			//SwipeDetector.startGame=true;
-			//print ("colidiu pista");
+			SwipeDetector.run = true;  // habilita o player a correr
+			SwipeDetector.auxD = 0;
+			
 		}
 		
 	}
-	
+	// esse nao usa pra nada...
 	void OnTriggerEnter (Collider other)
 	{
 		if (other.gameObject.tag == "tri") {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+// Script que faz a movimentaçao do player sobre a pista
 public class MovingThetexture : MonoBehaviour
 {
 	public float speed;
@@ -15,18 +15,17 @@ public class MovingThetexture : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		//currentMaterial = GetComponent<Renderer>().material;
+		
 		rgbody = GetComponent<Rigidbody> ();
-		//rgbody.velocity = new Vector3(0,0,100000*0.02f);
+		
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+		//acelera o player com os dados do swipedetector
 		offSet = SwipeDetector.auxD * Time.deltaTime;
 		
-		//currentMaterial.SetTextureOffset("_MainTex",new Vector2(0,offSet));
-		//transform.Translate (0, 0, offSet);
 		rgbody.velocity = new Vector3 (0, -10, offSet);
 	}
 	

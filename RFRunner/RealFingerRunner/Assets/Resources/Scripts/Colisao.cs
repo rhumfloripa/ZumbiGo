@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+// Script quando o bloco player chega ao final da pista colisao com bloco FIM DA PISTA
 public class Colisao : MonoBehaviour
 {
 
 	public GameObject botao;
 	AudioSource audioFinish;
-	public static bool ganhou;
+	public static bool ganhou; // 
 	public InputField name;
-	public static float tempoFinal;
+	public static float tempoFinal; // pega tempo do Swipedetector
 	public static float highscore;
-	public static string key;
+	public static string key; // nome da chave que ira gravar
 	float myscore;
 	float score;
 	//ArrayList lNames = new ArrayList ();
@@ -30,6 +30,8 @@ public class Colisao : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+	
+		// verifica se queimou largada
 		if (SwipeDetector.queimouLargada) {
 			
 			//SwipeDetector.queimouLargada = true;
@@ -50,7 +52,7 @@ public class Colisao : MonoBehaviour
 			
 			tempoFinal = SwipeDetector.startTime;
 			myscore = tempoFinal;
-			
+			//Grava o score
 			if (PlayerPrefs.HasKey (key)) {
 				
 				highscore = PlayerPrefs.GetFloat (key);
@@ -71,6 +73,7 @@ public class Colisao : MonoBehaviour
 				//print (PlayerPrefs.GetFloat (key));
 				
 			} else {
+				// se nao tem save, ele cria agora!!!
 				PlayerPrefs.SetFloat (key, myscore);
 				PlayerPrefs.Save ();
 			}
@@ -78,11 +81,13 @@ public class Colisao : MonoBehaviour
 			//PlayerPrefs.SetFloat ("Score", tempoFinal);//grava o dado
 			//PlayerPrefs.Save ();
 			
-			
+			// ajusta as variaveis para o replay
 			SwipeDetector.startGame = false;
 			SwipeDetector.run = false;
 			SwipeDetector.timer = "3";
 			SwipeDetector.isTouch = true;
+			SwipeDetector.counter = 0;
+			SwipeDetector.auxD = 0;
 			ganhou = true;
 			botao.SetActive (true);
 			audioFinish.Play ();
