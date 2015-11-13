@@ -5,18 +5,21 @@ public class Splash : MonoBehaviour
 {
 	public float tempo;
 	float aux;
+    AudioSource introSound;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
 	{
-	
-	}
+	    introSound = GetComponent<AudioSource>();
+        introSound.Play();
+    }
 	
 	// Update is called once per frame
 	void Update ()
 	{
-	
-		if (!BtTrocaDeCena.viuSplash) {
+
+       
+        if (!BtTrocaDeCena.viuSplash) {
 			aux += Time.deltaTime;
 			if (aux >= tempo) {
 				aux = 0;

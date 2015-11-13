@@ -35,5 +35,16 @@ public class BtTrocaDeCena : MonoBehaviour
 		
 		
 	}
-	
+    public void sairSistema()
+    {
+        
+        PlayerPrefs.Save();
+        Application.Quit();
+
+
+        //print ("colidiu ="+SwipeDetector.startGame);
+
+
+    }
+
 }

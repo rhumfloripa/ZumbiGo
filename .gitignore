@@ -1,4 +1,6 @@
-*.info
 *.meta
-\Library\*.*
-\modelos3d\*.*
+*.info
+\Library\
+\modelos3d\
+Library/
+modelos3d/
