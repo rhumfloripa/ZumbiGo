@@ -1,31 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Scripts\MovingThetexture.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SwipeDetector.cs">
     <Files>
-      <File FileName="RealFingerRunner.sln" Line="46" Column="1" />
-      <File FileName="Assets\Resources\Scripts\Colisao.cs" Line="14" Column="59" />
-      <File FileName="Assets\Resources\Scripts\SwipeDetector.cs" Line="22" Column="50" />
-      <File FileName="Assets\Resources\Scripts\BtTrocaDeCena.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Scripts\ColisaoPista.cs" Line="32" Column="29" />
-      <File FileName="Assets\Resources\Scripts\Score.cs" Line="56" Column="46" />
-      <File FileName="Assets\Resources\Scripts\Timer.cs" Line="3" Column="73" />
-      <File FileName="Assets\Resources\Scripts\TextoHiScore.cs" Line="4" Column="39" />
-      <File FileName="Assets\Resources\Scripts\Movimentacao.cs" Line="3" Column="38" />
-      <File FileName="Assets\Resources\Scripts\MovingThetexture.cs" Line="28" Column="3" />
+      <File FileName="Assets\Scripts\SwipeDetector.cs" Line="159" Column="28" />
+      <File FileName="..\..\..\RFRunner\RealFingerRunner\Assets\Resources\Scripts\SwipeDetector.cs" Line="10" Column="29" />
+      <File FileName="..\..\..\RFRunner\RealFingerRunner\Assets\Resources\Scripts\MovingThetexture.cs" Line="27" Column="48" />
+      <File FileName="Assets\Scripts\Score.cs" Line="102" Column="1" />
+      <File FileName="Assets\Scripts\Colisao.cs" Line="55" Column="28" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Resources" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="MovingThetexture.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
