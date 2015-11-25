@@ -1,12 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SwipeDetector.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Colisao.cs">
     <Files>
-      <File FileName="Assets\Scripts\SwipeDetector.cs" Line="159" Column="28" />
-      <File FileName="..\..\..\RFRunner\RealFingerRunner\Assets\Resources\Scripts\SwipeDetector.cs" Line="10" Column="29" />
-      <File FileName="..\..\..\RFRunner\RealFingerRunner\Assets\Resources\Scripts\MovingThetexture.cs" Line="27" Column="48" />
-      <File FileName="Assets\Scripts\Score.cs" Line="102" Column="1" />
-      <File FileName="Assets\Scripts\Colisao.cs" Line="55" Column="28" />
+      <File FileName="Assets\Scripts\SwipeDetector.cs" Line="73" Column="36" />
+      <File FileName="..\..\..\RFRunner\RealFingerRunner\Assets\Resources\Scripts\SwipeDetector.cs" Line="1" Column="1" />
+      <File FileName="..\..\..\RFRunner\RealFingerRunner\Assets\Resources\Scripts\MovingThetexture.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Score.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Colisao.cs" Line="61" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
