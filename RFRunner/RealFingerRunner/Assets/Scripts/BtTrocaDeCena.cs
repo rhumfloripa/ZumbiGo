@@ -1,23 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class BtTrocaDeCena : MonoBehaviour
 {
 	public static bool viuSplash = false;
+    public AudioSource click;
 	
 	// Use this for initialization
 	void Start ()
 	{
 		if (this.tag == "reload") 
 			this.gameObject.SetActive (false);
+        click.GetComponent<AudioSource>();
 	}
 	
 
 	public void vaiPara (string cena)
 	{
-		SwipeDetector.accelarator = 0;
-		Application.LoadLevel (cena);
+        click.Play();
+        StartCoroutine(GoToNextScene(cena));        
 	}
+
+    private IEnumerator GoToNextScene(string cena)
+    {
+        yield return new WaitForSeconds(.5f);
+        Application.LoadLevel(cena);
+        yield break;
+    }
 
     public void sairSistema()
     {

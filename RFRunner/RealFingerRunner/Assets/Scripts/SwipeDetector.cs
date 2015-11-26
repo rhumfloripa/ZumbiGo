@@ -36,18 +36,21 @@ public class SwipeDetector : MonoBehaviour
     void SetSpeed()
     {
         if (accelarator >= 58) { accelarator = 70; return; }
-        else if (accelarator >= 36) { accelarator = 60; return; }
-        else if (accelarator >= 26) { accelarator = 40; return; }
-        else if (accelarator >= 18) { accelarator = 30; return; }
-        else if (accelarator < 15) { accelarator = 23; }
-	}
+        else if (accelarator >= 46) { accelarator = 60; return; }
+        else if (accelarator >= 35) { accelarator = 50; return; }
+        else if (accelarator >= 25) { accelarator = 40; return; }
+        else if (accelarator >= 20) { accelarator = 30; return; }
+        else if (accelarator >= 15) { accelarator = 25; return; }
+        else if (accelarator >= 8) { accelarator = 20; return; }
+        else accelarator = 10;
+    }
 
 
 	void Update ()
 	{
-        if (!Score.startGame)
+        if (!Score.startGame && !queimouLargada)
         {
-			camera.transform.rotation = Quaternion.Slerp (camera.transform.rotation, Quaternion.Euler (25, 0, 0), .25f);
+			camera.transform.rotation = Quaternion.Slerp (camera.transform.rotation, Quaternion.Euler (25, 0, 0), .1f);
 			camera.transform.position = Vector3.Lerp (camera.transform.position,
                     new Vector3 (camera.transform.position.x, 10, camera.transform.position.z), .075f);
 		}
@@ -62,7 +65,7 @@ public class SwipeDetector : MonoBehaviour
 		}
 
         if (accelarator > 0)
-            accelarator -= accelarator * .016f; //desacelara total em 1 seg (1.6% ao frame)
+            accelarator -= accelarator * .016f;
 
 #if UNITY_EDITOR
 
@@ -78,10 +81,7 @@ public class SwipeDetector : MonoBehaviour
 		}
 
 #else
- 
-		// desacelerador
-			if (accelarator > 0) 
-				accelarator -= Time.deltaTime * 100;		
+ 	
 		
 		//verifica queimou largada
 		if (Input.touchCount > 0 && !Score.startGame) 
@@ -135,13 +135,13 @@ public class SwipeDetector : MonoBehaviour
 				float swipeDistVertical = (new Vector3 (0, touch.position.y, 0) - new Vector3 (0, startPos.y, 0)).magnitude;
 				
 					if (swipeDistVertical > minSwipeDistY)
-                {
+                    {
 					float swipeValue = Mathf.Sign (touch.position.y - startPos.y);
 					if (swipeValue < 0) //down swipe
                     { 		
 						if (Score.startGame)
                         {
-							// 1st step
+                                    /* 1st step
 							if (counter == 0)
                             { 
 							    accelarator += 500;
@@ -157,9 +157,10 @@ public class SwipeDetector : MonoBehaviour
 
                             else
                             { 
-								accelarator += ((touch.deltaPosition.y) / 2) * -1;
-							}	
-					    }
+                                accelarator = touch.deltaPosition.y * -.1f;
+								//accelarator += ((touch.deltaPosition.y) / 2) * -1;
+							}*/
+                                }
 				   }
                 }
 				break;
