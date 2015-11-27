@@ -60,14 +60,13 @@ public class SwipeDetector : MonoBehaviour
 			camera.transform.position = Vector3.Lerp (camera.transform.position,
                     new Vector3 (camera.transform.position.x, 13, camera.transform.position.z), .01f);
 			camera.transform.rotation = Quaternion.Slerp (camera.transform.rotation, Quaternion.Euler (xzRotation, 0, xzRotation), .1f);
-
-			rgbody.velocity = new Vector3 (0, 0, accelarator * Time.deltaTime); //mobile precisa add *Time.deltaTime
 		}
 
 
 #if UNITY_EDITOR
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		if (Input.GetKeyDown (KeyCode.Space))
+        {
 			SetSpeed ();
 			xzRotation *= -1;
 			startRunning = true;
@@ -75,15 +74,19 @@ public class SwipeDetector : MonoBehaviour
 
 			if (!Score.startGame)
 				queimouLargada = true;
-
-            if (accelarator > 0)
-                accelarator -= accelarator * .016f;
         }
+
+        if (accelarator > 0)
+            accelarator -= accelarator * .016f;
+
+        rgbody.velocity = new Vector3(0, 0, accelarator);
 
 #else
  	
 		if (accelarator > 0)
 			accelarator -= accelarator * .0016f; //desacelara total em 1 seg (1.6% ao frame)
+
+        rgbody.velocity = new Vector3 (0, 0, accelarator * Time.deltaTime);
 
 
 		//verifica queimou largada

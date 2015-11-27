@@ -2,17 +2,19 @@
 using System.Collections;
 using System;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class BtTrocaDeCena : MonoBehaviour
 {
 	public static bool viuSplash = false;
     public AudioSource click;
-	
-	// Use this for initialization
-	void Start ()
+
+    // Use this for initialization
+    void Start ()
 	{
 		if (this.tag == "reload") 
 			this.gameObject.SetActive (false);
-        click.GetComponent<AudioSource>();
+        click = GetComponent<AudioSource>();
 	}
 	
 
@@ -24,7 +26,7 @@ public class BtTrocaDeCena : MonoBehaviour
 
     private IEnumerator GoToNextScene(string cena)
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.25f);
         Application.LoadLevel(cena);
         yield break;
     }

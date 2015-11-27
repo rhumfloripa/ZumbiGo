@@ -45,7 +45,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Resources\Scripts\VectorMap.cs" />
+     <Compile Include="Assets\Resources\ScriptsRoger\Testes Roger\MobileDevice.cs" />
+     <Compile Include="Assets\Resources\ScriptsRoger\Testes Roger\Movimentacao.cs" />
+     <Compile Include="Assets\Resources\ScriptsRoger\Testes Roger\NavSample.cs" />
+     <Compile Include="Assets\Resources\ScriptsRoger\Testes Roger\_Movimentacao.cs" />
      <Compile Include="Assets\Scripts\BtTrocaDeCena.cs" />
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\Colisao.cs" />
@@ -54,16 +57,18 @@
      <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\SplashScreen.cs" />
      <Compile Include="Assets\Scripts\SwipeDetector.cs" />
-     <Compile Include="Assets\Scripts\Testes Roger\MobileDevice.cs" />
-     <Compile Include="Assets\Scripts\Testes Roger\Movimentacao.cs" />
-     <Compile Include="Assets\Scripts\Testes Roger\NavSample.cs" />
-     <Compile Include="Assets\Scripts\Testes Roger\_Movimentacao.cs" />
      <None Include="Assets\Resources\Fonts\liquid_crystal\Info.txt" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
