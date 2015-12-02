@@ -25,8 +25,8 @@ public class Score : MonoBehaviour
 		startGame = false;
 		gameFinished = false;
 
-		botaoReplay.SetActive (false);
-		botaoExit.SetActive (false);
+        ShowButtonsToReplay(false);
+        HideHUDButtons(false);
     }
 
 	IEnumerator CountDown ()
@@ -38,6 +38,7 @@ public class Score : MonoBehaviour
 		countDownText.color = Color.green;
 		countDownText.text = "GO!";
 		startGame = true;
+        HideHUDButtons(true);
 		yield return new WaitForSeconds (1);
 		countDownText.text = "";
 		yield break;
@@ -63,29 +64,29 @@ public class Score : MonoBehaviour
 				time.color = Color.red;
 				time.text = "False Start";
 				countDownText.text = "";
-				ShowButtonsToReplay ();
-                HideHUDButtons();
+				ShowButtonsToReplay(true);
+                HideHUDButtons(false);
             }
 
             else if (gameFinished)
             {
-				ShowButtonsToReplay ();
-                HideHUDButtons();
-				ShowScore ();
+				ShowButtonsToReplay(true);
+                HideHUDButtons(false);
+				ShowScore();
 			}
 		}
 	}
 
-	void ShowButtonsToReplay ()
+	void ShowButtonsToReplay (bool condition)
 	{
-		botaoReplay.SetActive (true);
-		botaoExit.SetActive (true);
+		botaoReplay.SetActive (condition);
+		botaoExit.SetActive (condition);
 	}
 
-    void HideHUDButtons()
+    void HideHUDButtons(bool condition)
     {
-        botaoBack.SetActive(false);
-        botaoMenu.SetActive(false);
+        botaoBack.SetActive(condition);
+        botaoMenu.SetActive(condition);
     }
 
     void Boost()
