@@ -14,8 +14,10 @@ public class Score : MonoBehaviour
 
 	public GameObject botaoReplay;
 	public GameObject botaoExit;
+    public GameObject botaoBack;
+    public GameObject botaoMenu;
 
-	void Start ()
+    void Start ()
 	{
 		time = GetComponent<Text> ();
 		StartCoroutine (CountDown ());
@@ -25,7 +27,7 @@ public class Score : MonoBehaviour
 
 		botaoReplay.SetActive (false);
 		botaoExit.SetActive (false);
-	}
+    }
 
 	IEnumerator CountDown ()
 	{
@@ -62,11 +64,13 @@ public class Score : MonoBehaviour
 				time.text = "False Start";
 				countDownText.text = "";
 				ShowButtonsToReplay ();
-			}
+                HideHUDButtons();
+            }
 
             else if (gameFinished)
             {
 				ShowButtonsToReplay ();
+                HideHUDButtons();
 				ShowScore ();
 			}
 		}
@@ -77,6 +81,12 @@ public class Score : MonoBehaviour
 		botaoReplay.SetActive (true);
 		botaoExit.SetActive (true);
 	}
+
+    void HideHUDButtons()
+    {
+        botaoBack.SetActive(false);
+        botaoMenu.SetActive(false);
+    }
 
     void Boost()
     {

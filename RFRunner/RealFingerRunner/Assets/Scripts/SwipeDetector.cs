@@ -103,9 +103,7 @@ public class SwipeDetector : MonoBehaviour
 			
 			if (touch.position.y < Screen.height / 2) // verifica se o touch foi tocado
 			{
-                isTouch = true;
-                xzRotation *= -1;
-				
+                isTouch = true;				
 
             switch (touch.phase) 
             {
@@ -147,7 +145,9 @@ public class SwipeDetector : MonoBehaviour
                     { 		
 						if (Score.startGame)
                         {
-                                    /* 1st step
+                                    
+                            xzRotation *= -1;
+                            // 1st step
 							if (counter == 0)
                             { 
 							    accelarator += 500;
@@ -165,8 +165,8 @@ public class SwipeDetector : MonoBehaviour
                             { 
                                 accelarator = touch.deltaPosition.y * -.1f;
 								//accelarator += ((touch.deltaPosition.y) / 2) * -1;
-							}*/
-                                }
+							}
+                         }
 				   }
                 }
 				break;
