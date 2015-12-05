@@ -9,7 +9,7 @@ public class Colisao : MonoBehaviour
 	AudioSource audioFinish;
 
 	float myscore;
-	float highScore;
+	public static float highScore;
 	public static bool isRecord;
 	public static string key = "score"; // nome da chave que ira gravar
 	public AudioClip win;

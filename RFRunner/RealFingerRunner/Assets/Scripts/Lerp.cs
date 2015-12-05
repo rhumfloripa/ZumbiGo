@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Lerp : MonoBehaviour { // quando tiver tmpo era bom mudar isso 
+public class Lerp : MonoBehaviour
+{ 
 
     public int tipo;
     public float tempo;
@@ -9,9 +10,9 @@ public class Lerp : MonoBehaviour { // quando tiver tmpo era bom mudar isso
     public Vector3 way;
     public bool mustDestroy;
     public Camera camera;
+    public bool isGhost;
 
-
-    float lerpTime = 1f;
+    float lerpTime;
     float currentLerpTime = 0f;
 
     Vector3 startPos;
@@ -23,6 +24,7 @@ public class Lerp : MonoBehaviour { // quando tiver tmpo era bom mudar isso
 
     protected void Start()
     {
+        lerpTime = 1f;
         startPos = transform.position;
         endPos = startPos + way * moveDistance;
     }
@@ -40,28 +42,29 @@ public class Lerp : MonoBehaviour { // quando tiver tmpo era bom mudar isso
         }
         else
         {
-            currentLerpTime += Time.deltaTime;
+                currentLerpTime += Time.deltaTime;
 
-            if (currentLerpTime > lerpTime)
-            {
-                currentLerpTime = lerpTime;
-            }
+                if (currentLerpTime > lerpTime)
+                {
+                    currentLerpTime = lerpTime;
+                }
 
-            float perc = currentLerpTime / lerpTime;
+                float perc = currentLerpTime / lerpTime;
 
-            if (tipo == 1) perc = Mathf.Sin(perc * Mathf.PI * 0.5f);//ease=out
-            if (tipo == 2) perc = 1f - Mathf.Cos(perc * Mathf.PI * 0.5f);//ease=in
-            if (tipo == 3) perc = perc * perc;// exponencial
-            if (tipo == 4) perc = perc * perc * (3f - 2f * perc);//smoth step
-            if (tipo == 5) perc = perc * perc * perc * (perc * (6f * perc - 15f) + 10f);//smother step
+                if (tipo == 1) perc = Mathf.Sin(perc * Mathf.PI * 0.5f);//ease=out
+                if (tipo == 2) perc = 1f - Mathf.Cos(perc * Mathf.PI * 0.5f);//ease=in
+                if (tipo == 3) perc = perc * perc;// exponencial
+                if (tipo == 4) perc = perc * perc * (3f - 2f * perc);//smoth step
+                if (tipo == 5) perc = perc * perc * perc * (perc * (6f * perc - 15f) + 10f);//smother step
 
-            transform.position = Vector3.Lerp(startPos, endPos, perc);
+                transform.position = Vector3.Lerp(startPos, endPos, perc);
 
-            if (contador > 200 && mustDestroy)
-            {
-                camera.backgroundColor = Color.black;
-                Destroy(this.gameObject);             
+                if (mustDestroy && contador > 200)
+                {
+                    camera.backgroundColor = Color.black;
+                    Destroy(this.gameObject);
+                }
             }
         }
     }
-}
+
