@@ -52,7 +52,7 @@ public class Score : MonoBehaviour
 		    Debug.Log(SwipeDetector.accelarator);
 
 			time.text = "Time: " + FloatToTime (startTime, "#0.0");
-			if (startTime > 59)
+			if (startTime >= 60)
 				time.text = "Time: " + FloatToTime (startTime, "#0:0.0");
 		}
 

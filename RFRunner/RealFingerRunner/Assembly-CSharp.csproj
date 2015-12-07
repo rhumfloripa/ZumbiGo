@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\Colisao.cs" />
      <Compile Include="Assets\Scripts\CreditState.cs" />
+     <Compile Include="Assets\Scripts\GhostLerp.cs" />
      <Compile Include="Assets\Scripts\Lerp.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\SplashScreen.cs" />
