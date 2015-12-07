@@ -1,14 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SwipeDetector.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\LM\lm_anabolinha01\LM_ANABOLINHA\Assets\Resources\Scripts\Player\Movimentacao.cs">
     <Files>
-      <File FileName="Assets\Scripts\SwipeDetector.cs" Line="160" Column="10" />
-      <File FileName="..\..\..\RFRunner\RealFingerRunner\Assets\Resources\Scripts\SwipeDetector.cs" Line="1" Column="1" />
-      <File FileName="..\..\..\RFRunner\RealFingerRunner\Assets\Resources\Scripts\MovingThetexture.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Colisao.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SplashScreen.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CameraMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Score.cs" Line="1" Column="1" />
+      <File FileName="..\..\..\LM\lm_anabolinha01\LM_ANABOLINHA\Assets\Resources\Scripts\Player\Movimentacao.cs" Line="152" Column="3" />
+      <File FileName="..\..\..\..\..\ZumbiGo\RealFingerRunner\Assets\Scripts\SwipeDetector.cs" Line="10" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
