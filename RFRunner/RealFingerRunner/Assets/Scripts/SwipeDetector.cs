@@ -65,9 +65,9 @@ public class SwipeDetector : MonoBehaviour
 		}
 
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE
 
-		if (Input.GetKeyDown (KeyCode.Space))
+        if (Input.GetKeyDown (KeyCode.Space))
         {
 			SetSpeed ();
 			xzRotation *= -1;

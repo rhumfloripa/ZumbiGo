@@ -6,14 +6,11 @@ using System;
 
 public class BtTrocaDeCena : MonoBehaviour
 {
-	public static bool viuSplash = false;
     public AudioSource click;
 
     // Use this for initialization
     void Start ()
 	{
-		if (this.tag == "reload") 
-			this.gameObject.SetActive (false);
         click = GetComponent<AudioSource>();
 	}
 	
@@ -36,4 +33,9 @@ public class BtTrocaDeCena : MonoBehaviour
         PlayerPrefs.Save();
         Application.Quit();
     }
+
+    public void SetRecord()
+    {
+
+    } 
 }

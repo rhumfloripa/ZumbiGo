@@ -13,6 +13,8 @@ public class GhostLerp : MonoBehaviour
      
     void Start()
     {
+        if (!GhostActivate.isActive)
+            gameObject.SetActive(false);
         lerpTime = PlayerPrefs.GetFloat(Colisao.key);
     }
 
